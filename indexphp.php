@@ -206,33 +206,13 @@
     <div id="vertical-center"> 
 		<button onclick="myFunction()">Click Me</button>   
         <div id="clock-container">
-            <div id="display-1" class="display-container display-size-12 display-no-0">
+            <div id="display-1" class="display-container display-size-12 <?php echo "$d"; ?>">
                 <div class="segment-x segment-a"><span class="segment-border"></span></div>
                 <div class="segment-y segment-b"><span class="segment-border"></span></div>
                 <div class="segment-y segment-c"><span class="segment-border"></span></div>
 				<div class="segment-x segment-d"><span class="segment-border"></span></div>
 			    <div class="segment-y segment-e"><span class="segment-border"></span></div>
                 <div class="segment-y segment-f"><span class="segment-border"></span></div>
-				<div class="segment-x segment-g"><span class="segment-border"></span></div>
-			</div>
-		
-			<div id="display-2" class="display-container display-size-12 display-no-1">
-				<div class="segment-x segment-a"><span class="segment-border"></span></div>
-				<div class="segment-y segment-b"><span class="segment-border"></span></div>
-				<div class="segment-y segment-c"><span class="segment-border"></span></div>
-				<div class="segment-x segment-d"><span class="segment-border"></span></div>
-				<div class="segment-y segment-e"><span class="segment-border"></span></div>
-				<div class="segment-y segment-f"><span class="segment-border"></span></div>
-				<div class="segment-x segment-g"><span class="segment-border"></span></div>
-			</div>
-
-			<div id="display-3" class="display-container display-size-12 display-no-2">
-				<div class="segment-x segment-a"><span class="segment-border"></span></div>
-				<div class="segment-y segment-b"><span class="segment-border"></span></div>
-				<div class="segment-y segment-c"><span class="segment-border"></span></div>
-				<div class="segment-x segment-d"><span class="segment-border"></span></div>
-				<div class="segment-y segment-e"><span class="segment-border"></span></div>
-				<div class="segment-y segment-f"><span class="segment-border"></span></div>
 				<div class="segment-x segment-g"><span class="segment-border"></span></div>
 			</div>
 		</div>	
@@ -243,13 +223,12 @@
 
 function myFunction(){
 	
-	var digit = 1;
-	var x = document.getElementsByClassName("display-no-" + digit);
-
-	for(var i=0;i<10;i++)
-	{
-		digit = digit + 1
-	}
+    <?php
+        for($x=0 ; $x < 10 ; $x++)
+        {
+            $d = "display-no-$x";
+        }
+    ?>
 }
 
 setInterval(setdisplays, 1000);
