@@ -203,7 +203,8 @@
 } 
 </style>
 <body>
-    <div id="vertical-center">        
+    <div id="vertical-center"> 
+		<button onclick="myFunction()">Click Me</button>   
         <div id="clock-container">
             <div id="display-1" class="display-container display-size-12 display-no-0">
                 <div class="segment-x segment-a"><span class="segment-border"></span></div>
@@ -215,7 +216,7 @@
 				<div class="segment-x segment-g"><span class="segment-border"></span></div>
 			</div>
 		
-			<div id="display-2" class="display-container display-size-12 display-no-1">
+			<div id="display-2" class="display-container display-size-12 display-no-1" hidden>
 				<div class="segment-x segment-a"><span class="segment-border"></span></div>
 				<div class="segment-y segment-b"><span class="segment-border"></span></div>
 				<div class="segment-y segment-c"><span class="segment-border"></span></div>
@@ -225,7 +226,7 @@
 				<div class="segment-x segment-g"><span class="segment-border"></span></div>
 			</div>
 
-			<div id="display-3" class="display-container display-size-12 display-no-2">
+			<div id="display-3" class="display-container display-size-12 display-no-2" hidden>
 				<div class="segment-x segment-a"><span class="segment-border"></span></div>
 				<div class="segment-y segment-b"><span class="segment-border"></span></div>
 				<div class="segment-y segment-c"><span class="segment-border"></span></div>
@@ -239,7 +240,6 @@
 </body>
 <script>
 
-var currentdisplayNo = 0;
 var display1 = document.getElementById('display-1');
 var display2 = document.getElementById('display-2');
 var display3 = document.getElementById('display-3');
@@ -247,11 +247,26 @@ var display4 = document.getElementById('display-4');
 var display5 = document.getElementById('display-5');
 var display6 = document.getElementById('display-6');
 
-function zeroFill(string, length) {
-	for (var i=0, l=length-string.length; i<l; i++) {
-		string = '0' + string;
+function myFunction(){
+	var digit = 1;
+	var x = document.getElementById("display-" + digit);
+
+	
+	
+
+	if(x.style.display === "none")
+	{
+		x.style.display = "block";
+	} 
+	else
+	{
+		x.style.display = "none";
 	}
-	return string;
+
+	for(var i=0;i<10;i++)
+	{
+		digit = digit + 1
+	}
 }
 
 setInterval(setdisplays, 1000);
